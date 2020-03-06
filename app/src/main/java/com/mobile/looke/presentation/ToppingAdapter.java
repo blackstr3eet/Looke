@@ -1,13 +1,15 @@
-package com.mobile.looke;
+package com.mobile.looke.presentation;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.mobile.looke.R;
+import com.mobile.looke.Topping;
 
 import java.util.List;
 
@@ -30,8 +32,8 @@ public class ToppingAdapter extends RecyclerView.Adapter<ToppingAdapter.ToppingV
 
     @Override
     public void onBindViewHolder(@NonNull ToppingViewHolder holder, int position) {
-        holder.id.setText("1003");
-        holder.type.setText("Blueberry");
+        holder.id.setText(topping.get(position).getId());
+        holder.type.setText(topping.get(position).getType());
     }
 
     @Override

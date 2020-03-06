@@ -2,19 +2,19 @@ package com.mobile.looke;
 
 public class Topping {
 
-    private int id;
+    private String id;
     private String type;
 
-    public Topping(int id, String type) {
+    public Topping(String id, String type) {
         this.id = id;
         this.type = type;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

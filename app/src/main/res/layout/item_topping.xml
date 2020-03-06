@@ -3,11 +3,10 @@
     android:orientation="horizontal"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorBackgroundRecyclerView"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="80dp"
     android:layout_margin="4dp" >
-
 
     <TextView
         android:id="@+id/toppingId"
@@ -15,6 +14,8 @@
         android:layout_gravity="center"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorSecondTextItemsRecyclerView"
+        android:textSize="18sp"
         android:text="@string/values_default" />
 
     <TextView
@@ -23,5 +24,7 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorSecondTextItemsRecyclerView"
+        android:textSize="18sp"
         android:text="@string/values_default" />
 </LinearLayout>
