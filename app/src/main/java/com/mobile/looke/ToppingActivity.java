@@ -8,7 +8,7 @@ public class ToppingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_topping);
 
         getSupportActionBar().setTitle(getString(R.string.toolbar_title_toppings));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
