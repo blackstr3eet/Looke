@@ -2,7 +2,7 @@ package com.mobile.looke.presentation;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.mobile.looke.data.Topping;
+import com.mobile.looke.data.domain.Topping;
 import java.util.ArrayList;
 import java.util.List;
 
