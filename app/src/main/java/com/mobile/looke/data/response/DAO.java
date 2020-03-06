@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mobile.looke.data.domain.Topping;
 import java.util.List;
 
-public class ToppingDAO {
+public class DAO {
 
     @JsonProperty("topping")
     public List<Topping> topping;

@@ -3,11 +3,11 @@ package com.mobile.looke.data.domain;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,19 +15,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "id",
         "type"
 })
-public class Topping {
+public class Batter {
 
     @JsonProperty("id")
     private String id;
     @JsonProperty("type")
     private String type;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap();
 
-    public Topping() {
+    public Batter() {
     }
 
-    public Topping(String id, String type) {
+    public Batter(String id, String type) {
         super();
         this.id = id;
         this.type = type;

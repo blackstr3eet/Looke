@@ -1,6 +1,7 @@
 package com.mobile.looke.data.domain;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -12,45 +13,31 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "id",
-        "type"
+        "batter"
 })
-public class Topping {
+public class Batters {
 
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("batter")
+    private List<Batter> batter = null;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new HashMap();
 
-    public Topping() {
+    public Batters() {
     }
 
-    public Topping(String id, String type) {
+    public Batters(List<Batter> batter) {
         super();
-        this.id = id;
-        this.type = type;
+        this.batter = batter;
     }
 
-    @JsonProperty("id")
-    public String getId() {
-        return id;
+    @JsonProperty("batter")
+    public List<Batter> getBatter() {
+        return batter;
     }
 
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @JsonProperty("type")
-    public String getType() {
-        return type;
-    }
-
-    @JsonProperty("type")
-    public void setType(String type) {
-        this.type = type;
+    @JsonProperty("batter")
+    public void setBatter(List<Batter> batter) {
+        this.batter = batter;
     }
 
     @JsonAnyGetter

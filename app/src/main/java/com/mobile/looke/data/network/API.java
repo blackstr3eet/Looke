@@ -9,14 +9,14 @@ public class API {
         // singleton class
     }
 
-    private Retrofit init() {
+    public Retrofit initialize() {
          return new Retrofit.Builder()
                 .baseUrl("https://sampletestingproject-4a8fc.web.app/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
 
-    public void service() {
-        init().create(Endpoint.class);
+    public static Data service() {
+        return new API().initialize().create(Data.class);
     }
 }
