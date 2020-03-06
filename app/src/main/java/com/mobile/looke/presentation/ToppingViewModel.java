@@ -5,12 +5,14 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.mobile.looke.data.domain.ResponseBody;
+import com.mobile.looke.data.response.ResponseBody;
 import com.mobile.looke.data.domain.Topping;
 import com.mobile.looke.data.network.API;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +29,7 @@ public class ToppingViewModel extends ViewModel {
             @Override
             public void onResponse(Call<List<ResponseBody>> call, Response<List<ResponseBody>> response) {
                 if(response.isSuccessful()) {
-                    toppingLiveData.setValue(filterListOnlyToppings(response.body()));
+                    toppingLiveData.setValue(filterListOnlyByToppings(response.body()));
                 }
             }
 
@@ -38,17 +40,35 @@ public class ToppingViewModel extends ViewModel {
         });
     }
 
-    // TODO implementation crate and filter list by body response (mocked list temporary)
-    private List<Topping> filterListOnlyToppings(List<ResponseBody> body) {
-        List<Topping> listFiltered = new ArrayList();
+    private List<Topping> filterListOnlyByToppings(List<ResponseBody> body) {
+        /** deny/allow duplicate toppings **/
+        boolean allowDuplicateToppings = true;
 
-        listFiltered.add( new Topping("1742","Blueberry"));
-        listFiltered.add( new Topping("3838","Pinapple"));
-        listFiltered.add( new Topping("9494","Mango"));
-        listFiltered.add( new Topping("3737","Cherry"));
-        listFiltered.add( new Topping("3440","Banana"));
-        listFiltered.add( new Topping("2626","Avocado"));
+        Map<String, String> map = new HashMap();
+        List<Topping> list = new ArrayList();
 
-        return listFiltered;
+        for(ResponseBody item : body) {
+            for (Topping topping : item.getTopping()) {
+                list.add(new Topping(topping.getId(), topping.getType()));
+
+                /** remove toppings duplicate by keys in map **/
+                if(!map.containsKey(topping.getId())) {
+                    map.put(topping.getId(), topping.getType());
+                }
+            }
+        }
+
+        if(allowDuplicateToppings) {
+            return list;
+        }
+
+        list.clear();
+
+        /** create new list by map without duplicate toppings **/
+        for(Map.Entry<String, String> test : map.entrySet()) {
+            list.add(new Topping(test.getKey(), test.getValue()));
+        }
+
+        return list;
     }
 }

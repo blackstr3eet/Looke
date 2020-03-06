@@ -31,6 +31,7 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
     implementation 'com.squareup.retrofit2:converter-jackson:2.7.2'
+    implementation 'com.google.guava:guava:28.2-android'
 
     testImplementation 'junit:junit:4.12'
 
