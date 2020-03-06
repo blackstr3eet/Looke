@@ -7,10 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.mobile.looke.R;
 import com.mobile.looke.Topping;
-
 import java.util.List;
 
 public class ToppingAdapter extends RecyclerView.Adapter<ToppingAdapter.ToppingViewHolder> {
