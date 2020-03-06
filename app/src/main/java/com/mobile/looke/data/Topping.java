@@ -1,4 +1,4 @@
-package com.mobile.looke;
+package com.mobile.looke.data;
 
 public class Topping {
 
